@@ -1,0 +1,28 @@
+type Product {
+  id: String!
+  name: String!
+  description: String
+  price: Float!
+}
+
+type Query {
+  getPanier(id: String!): Panier
+  getAllProducts: [Product!]!
+  getProductById(id: String!): Product
+  getProductsByName(name: String!): [Product]
+}
+
+type Mutation {
+  updateProduct(
+    id: String!
+    name: String
+    description: String
+    price: Float
+  ): Product
+  deleteProduct(id: String!): String
+  createProduct(name: String!, description: String, price: Float!): Product
+}
+
+type Subscription {
+  productUpdated: Product
+}
